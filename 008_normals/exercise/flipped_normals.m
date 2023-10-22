@@ -9,10 +9,11 @@ function FN = flipped_normals(V,F)
 %  FN  flipped normals of the mesh V,N
 
 %Compute per-face normals.
-N = ...
+N = normals(V,F);
+N = N ./ normrow(N);
 
 %Flip the per-face normals.
-FN = ...
+FN = N * -1;
 
 end
 

@@ -9,6 +9,8 @@ function A = shuffle_by_1(A)
 %  A  a rectangular matrix
 % Outputs:
 %  A  the input matrix with the rows shuffled to the right by 1
-
+tempCol = A(:, end);
+A(:, 2:end) = A(:, 1:end-1);
+A(:, 1) = tempCol;
 end
 

@@ -10,7 +10,10 @@ function A = four_corners(m,n)
 %  A  the sparse matrix with ones in their four corners
 %
 
-A = ...
+rows = [1;1;m;m];
+cols = [1;n;1;n];
+values = [1;1;1;1];
+A = sparse(rows, cols, values, m, n);
 
 end
 

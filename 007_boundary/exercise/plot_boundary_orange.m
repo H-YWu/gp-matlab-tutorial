@@ -9,7 +9,9 @@ function plot_boundary_orange(V,F)
 
 %Compute a function u that is 0 on all interior vertices and 1 on all
 %boundary vertices.  
-u = ...
+b = unique(outline(F));
+u = zeros(size(V,1),1);
+u(b) = 1;
 
 %Plot the function u with the right colors.
 t = tsurf(F,V, 'CData',u);

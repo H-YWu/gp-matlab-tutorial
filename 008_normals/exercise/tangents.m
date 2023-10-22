@@ -14,12 +14,17 @@ function [T1,T2] = tangents(V,F)
 %      the same direction as the normal.
 
 %Extract the first edge of each face and normalize it.
-E1 = ...
+E1 = V(F(:,1),:) - V(F(:,3),:);
+E1 = E1 ./ normrow(E1);
 
 %Extract the second edges and project onto the orthogonal complement of E1.
-E2 = ...
+E2 = V(F(:,2),:) - V(F(:,3),:);
+proj = dot(E1, E2, 2) .* E1;
+E2 = E2 - proj;
 
 %Normalize to get unit vectors
+T1 = E1;
+T2 = E2 ./ normrow(E2);
 
 end
 

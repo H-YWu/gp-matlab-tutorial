@@ -1,7 +1,15 @@
-function [outputArg1,outputArg2] = add_then_multiply(inputArg1,inputArg2)
-%ADD_THEN_MULTIPLY Summary of this function goes here
-%   Detailed explanation goes here
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
+function [result] = add_then_multiply(a1, a2, m)
+%ADD_THEN_MULTIPLY adds two numbers a1 and a2, and then multiplies them by
+%   a third number m
+% 
+% result = add_them_multiply(a1, a1, m);
+%
+% Inputs:
+%  a1, a2: the two numbers that to be added
+%  m: the number to multiply the sum by
+%
+% Outputs:
+%  result:  the result of addition and then multiplication
+result = (a1 + a2) * m;
 end
 

@@ -21,11 +21,13 @@ function A = triangles_matrix(n)
 %  A  the sparse matrix with the requested triangle pattern
 %
 
-i = ...
+i = [(2:n)'; (1:(n-1))'; ones(n-2,1); n*ones(n-2,1); ...
+    (3:(n-1))'; (2:(n-2))'];
 
-j = ...
+j = [ones(n-1,1); n*ones(n-1,1); (2:(n-1))'; (2:(n-1))'; ...
+    (2:(n-2))'; (3:(n-1))']; 
 
-v = ...
+v = ones(size(i));
 
 A = sparse(i, j, v, n, n);
 

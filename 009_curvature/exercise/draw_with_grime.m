@@ -11,23 +11,23 @@ function t = draw_with_grime(V,F)
 %
 
 %Compute the principal curvatures
-kappa = ...
+kappa = discrete_curvatures(V,F);
 
 %Get a function that is 0 when principal curvatures are positive, and
 %increases in magnitude when they are negative
-c = ...
+c = abs(min(0,kappa(:,1)) + min(0,kappa(:,2)));
 
 %Plot the resulting function
 t = tsurf(F,V, 'CData',c);
 shading interp;
 axis equal;
 axis off;
-colormap(...);
+colormap(cbrewer('Greys', 500));
 light('Position',[-1.5 1 1],'Style','local');
 lights = camlight;
-set(t, 'FaceLighting',..., 'FaceColor',...);
+set(t, 'FaceLighting','gouraud', 'FaceColor','interp');
 set(t, 'DiffuseStrength',0.5, 'SpecularStrength',0.2, 'AmbientStrength',0.3);
-camproj(...);
+camproj('perspective');
 add_shadow([t],lights);
 
 end

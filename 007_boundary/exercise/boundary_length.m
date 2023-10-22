@@ -7,14 +7,17 @@ function L = boundary_length(V,F)
 %  L  the length of the boundary
 
 %Compute the indices of all boundary edges.
-O = ...
+O = outline(F);
 
 %Compute a matrix whose rows are equal to edgeEnd-edgeStart for each
 %boundary edge.
-BE = ...
+BE = [];
+for i = 1:size(O,1)
+    BE(end+1,:) = V(O(i,1),:) - V(O(i,2),:); 
+end
 
 %Compute the total length of all boundary edges.
-L = ...
+L = sum(normrow(BE));
 
 end
 

@@ -10,7 +10,7 @@ function FN = flipped_normals(V,F)
 
 %Compute per-face normals.
 N = normals(V,F);
-N = N ./ normrow(V,F);
+N = N ./ normrow(N);
 
 %Flip the per-face normals.
 FN = -N;
